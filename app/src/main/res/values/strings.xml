@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Med Andra Ord</string>
+    <string name="edit_message">Skriv in ett meddelande</string>
+    <string name="button_start">Starta spel</string>
+    <string name="next_word">Nästa ord</string>
+    <string name="skip_word">Hoppa över ord</string>
+    <string name="next_player">Nästa spelare</string>
+    <string-array
+        name="andra_ord">
+        <item>Donald Trump</item>
+        <item>Bamse</item>
+        <item>Bernie Sanders</item>
+        <item>Pingu</item>
+        <item>Nils-Karlsson Pyssling</item>
+        <item>Stefan Löfven</item>
+        <item>Fredrik Reinfeldt</item>
+        <item>Steve Jobs</item>
+        <item>Blåa männen på tavlan</item>
+    </string-array>
+</resources>
