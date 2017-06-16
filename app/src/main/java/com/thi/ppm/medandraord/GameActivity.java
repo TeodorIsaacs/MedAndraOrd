@@ -11,18 +11,51 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     public String[] words;
-    private TextView textView;
+    private TextView currentWord;
     private int count = 0;
+    private int nOTeams = 2;
+    private int[] teamScores;
+    private int currentTeam = 0;
+    private TextView currentScore;
+    private int currentScoreInt = 0;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.thi.ppm.medandraord.R.layout.activity_game);
 
-        getWords();
-        textView = (TextView) findViewById(com.thi.ppm.medandraord.R.id.textView);
-        textView.setText(words[count]);
+        /*
+        Hur man kan hämta och displaya meddelanden från
+        // Get the Intent that started this activity and extract the string
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(TeamConfigActivity.EXTRA_MESSAGE);
 
+        // Capture the layout's TextView and set the string as its text
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(message);
+
+
+        Eller
+
+        String name = i.getStringExtra("name"); Så slipper man ett fält i gamla klassen kanske...
+        String email = i.getStringExtra("email");
+        */
+
+
+        // Handle scores
+        teamScores = new int[nOTeams];
+        for (int i = 0; i < nOTeams; i++){
+            teamScores[i] = 0;
+        }
+        currentScore = (TextView) findViewById(R.id.textView2);
+        currentScore.setText(Integer.toString(currentScoreInt));
+
+        // Fetches words, and displays first word
+        getWords();
+        currentWord = (TextView) findViewById(com.thi.ppm.medandraord.R.id.textView);
+        currentWord.setText(words[count]);
+
+        // Creates a thread for running the progress bar
         new Thread( new Runnable() {
             public void run() {
                 ProgressBar progressBar = (ProgressBar) findViewById(com.thi.ppm.medandraord.R.id.progressBar3);
@@ -47,19 +80,22 @@ public class GameActivity extends AppCompatActivity {
 
     public void nextWord(View view){
         if(count < words.length - 1) {
-            textView.setText(words[++count]);
+            currentWord.setText(words[++count]);
+            teamScores[currentTeam] += 1;
+            currentScoreInt++;
+            currentScore.setText(Integer.toString(currentScoreInt));
         } else {
             count = 0;
-            textView.setText(words[count]);
+            currentWord.setText(words[count]);
         }
     }
 
     public void skipWord(View view){
         if(count < words.length - 1){
-            textView.setText(words[++count]);
+            currentWord.setText(words[++count]);
         } else {
             count = 0;
-            textView.setText(words[count]);
+            currentWord.setText(words[count]);
         }
     }
 }

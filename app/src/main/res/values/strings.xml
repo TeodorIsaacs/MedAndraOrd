@@ -5,8 +5,12 @@
     <string name="next_word">Nästa ord</string>
     <string name="skip_word">Hoppa över ord</string>
     <string name="next_player">Nästa spelare</string>
-    <string-array
-        name="andra_ord">
+    <string name="button_continue">Fortsätt</string>
+    <string name="team_instructions">Välj hur många lag som ska spela och deras namn</string>
+    <string name="edit_teamname_hint">Lagets namn</string>
+
+
+    <string-array name="andra_ord">
         <item>Donald Trump</item>
         <item>Bamse</item>
         <item>Bernie Sanders</item>
@@ -15,11 +19,6 @@
         <item>Stefan Löfven</item>
         <item>Fredrik Reinfeldt</item>
         <item>Steve Jobs</item>
-        <item>Blåa männen på tavlan</item>
-        <item>Blåa männen på tavlan</item>
-        <item>Blåa männen på tavlan</item>
-        <item>Blåa männen på tavlan</item>
-        <item>Blåa männen på tavlan</item>
         <item>Blåa männen på tavlan</item>
         <item>En korvgubbe</item>
     </string-array>
